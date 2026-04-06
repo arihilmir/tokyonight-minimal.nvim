@@ -11,7 +11,7 @@ function M.get(c, opts)
     ["@boolean"]                    = "Boolean",
     ["@character"]                  = "Character",
     ["@character.printf"]           = "SpecialChar",
-    ["@character.special"]          = "SpecialChar",
+    ["@character.special"]          = "String",
     ["@comment"]                    = "Comment",
     ["@comment.error"]              = { fg = c.error },
     ["@comment.hint"]               = { fg = c.hint },
@@ -40,7 +40,7 @@ function M.get(c, opts)
     ["@keyword.directive"]          = "PreProc",
     ["@keyword.directive.define"]   = "Define",
     ["@keyword.exception"]          = "Exception",
-    ["@keyword.function"]           = { fg = c.magenta, style = opts.styles.functions }, -- For keywords used to define a function.
+    ["@keyword.function"]           = { fg = c.fg, style = opts.styles.functions }, -- For keywords used to define a function.
     ["@keyword.import"]             = { fg = c.fg },
     ["@keyword.operator"]           = "@operator",
     ["@keyword.repeat"]             = "Repeat",
@@ -73,15 +73,15 @@ function M.get(c, opts)
     ["@none"]                       = {},
     ["@number"]                     = "Number",
     ["@number.float"]               = "Float",
-    ["@operator"]                   = { fg = c.blue5 }, -- For any operator: `+`, but also `->` and `*` in C.
+    ["@operator"]                   = { fg = c.magenta }, -- For any operator: `+`, but also `->` and `*` in C.
     ["@property"]                   = { fg = c.green1 },
-    ["@punctuation.bracket"]        = { fg = c.fg_dark }, -- For brackets and parens.
-    ["@punctuation.delimiter"]      = { fg = c.blue5 }, -- For delimiters ie: `.`
-    ["@punctuation.special"]        = { fg = c.blue5 }, -- For special symbols (e.g. `{}` in string interpolation)
-    ["@punctuation.special.markdown"] = { fg = c.orange }, -- For special symbols (e.g. `{}` in string interpolation)
+    ["@punctuation.bracket"]        = { fg = c.fg }, -- For brackets and parens.
+    ["@punctuation.delimiter"]      = { fg = c.fg }, -- For delimiters ie: `.`
+    ["@punctuation.special"]        = { fg = c.fg }, -- For special symbols (e.g. `{}` in string interpolation)
+    ["@punctuation.special.markdown"] = { fg = c.fg }, -- For special symbols (e.g. `{}` in string interpolation)
     ["@string"]                     = "String",
-    ["@string.documentation"]       = { fg = c.yellow },
-    ["@string.escape"]              = { fg = c.magenta }, -- For escape characters within a string.
+    ["@string.documentation"]       = { fg = c.orange },
+    ["@string.escape"]              = { fg = c.orange }, -- For escape characters within a string.
     ["@string.regexp"]              = { fg = c.blue6 }, -- For regexes.
     ["@tag"]                        = "Label",
     ["@tag.attribute"]              = "@property",
@@ -91,13 +91,13 @@ function M.get(c, opts)
     ["@tag.javascript"]             = { fg = c.red },
     ["@type"]                       = "Type",
     ["@type.builtin"]               = { fg = Util.blend_bg(c.blue1, 0.8) },
-    ["@type.definition"]            = "Typedef",
-    ["@type.qualifier"]             = "@keyword",
+    ["@type.definition"]            = "Type",
+    ["@type.qualifier"]             = "Type",
     ["@variable"]                   = { fg = c.fg, style = opts.styles.variables }, -- Any variable name that does not have another highlight.
-    ["@variable.builtin"]           = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
-    ["@variable.member"]            = { fg = c.green1 }, -- For fields.
-    ["@variable.parameter"]         = { fg = c.yellow }, -- For parameters of a function.
-    ["@variable.parameter.builtin"] = { fg = Util.blend_fg(c.yellow, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
+    ["@variable.builtin"]           = { fg = c.fg }, -- Variable names that are defined by the languages, like `this` or `self`.
+    ["@variable.member"]            = { fg = c.fg }, -- For fields.
+    ["@variable.parameter"]         = { fg = c.fg }, -- For parameters of a function.
+    ["@variable.parameter.builtin"] = { fg = c.fg }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
   }
 
   for i, color in ipairs(c.rainbow) do

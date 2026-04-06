@@ -11,6 +11,7 @@ function M.get(c, opts)
     Comment                     = { fg = c.green, style = opts.styles.comments }, -- any comment
     ColorColumn                 = { bg = c.black }, -- used for the columns set with 'colorcolumn'
     Conceal                     = { fg = c.dark5 }, -- placeholder characters substituted for concealed text (see 'conceallevel')
+    Conditional                 = { fg = c.magenta }, -- conditional expressions keywords
     Cursor                      = { fg = c.bg, bg = c.fg }, -- character under the cursor
     lCursor                     = { fg = c.bg, bg = c.fg }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM                    = { fg = c.bg, bg = c.fg }, -- like Cursor, but used when in IME mode |CursorIM|
@@ -87,6 +88,7 @@ function M.get(c, opts)
     Keyword                     = { fg = c.fg, style = opts.styles.keywords }, --  any other keyword
     Operator                    = { fg = c.magenta }, -- "sizeof", "+", "*", etc.
     PreProc                     = { fg = c.cyan }, -- (preferred) generic Preprocessor
+    Repeat                      = { fg = c.magenta }, -- (preferred) repeat keywords: for, etc
     Special                     = { fg = c.blue1 }, -- (preferred) any special symbol
     Statement                   = { fg = c.fg }, -- (preferred) any statement
     String                      = { fg = c.orange }, --   a string constant: "this is a string"
