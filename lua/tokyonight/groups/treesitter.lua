@@ -73,7 +73,7 @@ function M.get(c, opts)
     ["@none"]                       = {},
     ["@number"]                     = "Number",
     ["@number.float"]               = "Number",
-    ["@operator"]                   = { fg = c.magenta }, -- For any operator: `+`, but also `->` and `*` in C.
+    ["@operator"]                   = { fg = c.fg }, -- For any operator: `+`, but also `->` and `*` in C.
     ["@property"]                   = { fg = c.green1 },
     ["@punctuation.bracket"]        = { fg = c.fg }, -- For brackets and parens.
     ["@punctuation.delimiter"]      = { fg = c.fg }, -- For delimiters ie: `.`
