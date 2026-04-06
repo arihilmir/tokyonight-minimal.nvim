@@ -20,7 +20,7 @@ function M.get(c, opts)
     ["@comment.todo"]               = { fg = c.todo },
     ["@comment.warning"]            = { fg = c.warning },
     ["@constant"]                   = "Constant",
-    ["@constant.builtin"]           = "Special",
+    ["@constant.builtin"]           = "Constant",
     ["@constant.macro"]             = "Define",
     ["@constructor"]                = { fg = c.magenta }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
     ["@constructor.tsx"]            = { fg = c.blue1 },
@@ -28,7 +28,7 @@ function M.get(c, opts)
     ["@diff.minus"]                 = "DiffDelete",
     ["@diff.plus"]                  = "DiffAdd",
     ["@function"]                   = "Function",
-    ["@function.builtin"]           = "Special",
+    ["@function.builtin"]           = "Function",
     ["@function.call"]              = "@function",
     ["@function.macro"]             = "Macro",
     ["@function.method"]            = "Function",
@@ -41,7 +41,7 @@ function M.get(c, opts)
     ["@keyword.directive.define"]   = "Define",
     ["@keyword.exception"]          = "Exception",
     ["@keyword.function"]           = { fg = c.magenta, style = opts.styles.functions }, -- For keywords used to define a function.
-    ["@keyword.import"]             = "Include",
+    ["@keyword.import"]             = { fg = c.fg },
     ["@keyword.operator"]           = "@operator",
     ["@keyword.repeat"]             = "Repeat",
     ["@keyword.return"]             = "@keyword",

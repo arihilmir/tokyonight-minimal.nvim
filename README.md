@@ -41,7 +41,7 @@ TokyoNight](https://github.com/enkia/tokyo-night-vscode-theme) theme. Includes
   [0.9.0](https://github.com/neovim/neovim/releases/tag/v0.9.0) features.
 - Terminal colors.
 - Supports all major plugins.
-- Provides [TokyoNight](https://github.com/folke/tokyonight.nvim)
+- Provides [TokyoNight](https://github.com/arihilmir/tokyonight-minimal.nvim)
   [extras](#-extras) for numerous other applications.
 
 <details>
@@ -194,7 +194,7 @@ Install the theme with your preferred package manager, such as
 
 ```lua
 {
-  "folke/tokyonight.nvim",
+  "arihilmir/tokyonight-minimal.nvim",
   lazy = false,
   priority = 1000,
   opts = {},

@@ -8,7 +8,7 @@ function M.get(c, opts)
   return {
     Foo                         = { bg = c.magenta2, fg = c.fg },
 
-    Comment                     = { fg = c.comment, style = opts.styles.comments }, -- any comment
+    Comment                     = { fg = c.green, style = opts.styles.comments }, -- any comment
     ColorColumn                 = { bg = c.black }, -- used for the columns set with 'colorcolumn'
     Conceal                     = { fg = c.dark5 }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor                      = { fg = c.bg, bg = c.fg }, -- character under the cursor
@@ -42,7 +42,7 @@ function M.get(c, opts)
     Normal                      = { fg = c.fg, bg = opts.transparent and c.none or c.bg }, -- normal text
     NormalNC                    = { fg = c.fg, bg = opts.transparent and c.none or opts.dim_inactive and c.bg_dark or c.bg }, -- normal text in non-current windows
     NormalSB                    = { fg = c.fg_sidebar, bg = c.bg_sidebar }, -- normal text in sidebar
-    NormalFloat                 = { fg = c.fg_float, bg = c.bg_float }, -- Normal text in floating windows.
+    NormalFloat                 = { fg = c.fg, bg = c.bg_dark }, -- Normal text in floating windows.
     FloatBorder                 = { fg = c.border_highlight, bg = c.bg_float },
     FloatTitle                  = { fg = c.border_highlight, bg = c.bg_float },
     Pmenu                       = { bg = c.bg_popup, fg = c.fg }, -- Popup menu: normal item.
@@ -76,22 +76,22 @@ function M.get(c, opts)
     WinBarNC                    = "StatusLineNC", -- window bar in inactive windows
 
     Bold                        = { bold = true, fg = c.fg }, -- (preferred) any bold text
-    Character                   = { fg = c.green }, --  a character constant: 'c', '\n'
+    Character                   = { fg = c.orange }, --  a character constant: 'c', '\n'
     Constant                    = { fg = c.orange }, -- (preferred) any constant
     Debug                       = { fg = c.orange }, --    debugging statements
     Delimiter                   =  "Special", --  character that needs attention
     Error                       = { fg = c.error }, -- (preferred) any erroneous construct
-    Function                    = { fg = c.blue, style = opts.styles.functions }, -- function name (also: methods for classes)
-    Identifier                  = { fg = c.magenta, style = opts.styles.variables }, -- (preferred) any variable name
+    Function                    = { fg = c.magenta, style = opts.styles.functions }, -- function name (also: methods for classes)
+    Identifier                  = { fg = c.fg, style = opts.styles.variables }, -- (preferred) any variable name
     Italic                      = { italic = true, fg = c.fg }, -- (preferred) any italic text
-    Keyword                     = { fg = c.cyan, style = opts.styles.keywords }, --  any other keyword
-    Operator                    = { fg = c.blue5 }, -- "sizeof", "+", "*", etc.
+    Keyword                     = { fg = c.fg, style = opts.styles.keywords }, --  any other keyword
+    Operator                    = { fg = c.magenta }, -- "sizeof", "+", "*", etc.
     PreProc                     = { fg = c.cyan }, -- (preferred) generic Preprocessor
     Special                     = { fg = c.blue1 }, -- (preferred) any special symbol
-    Statement                   = { fg = c.magenta }, -- (preferred) any statement
-    String                      = { fg = c.green }, --   a string constant: "this is a string"
+    Statement                   = { fg = c.fg }, -- (preferred) any statement
+    String                      = { fg = c.orange }, --   a string constant: "this is a string"
     Todo                        = { bg = c.yellow, fg = c.bg }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-    Type                        = { fg = c.blue1 }, -- (preferred) int, long, char, etc.
+    Type                        = { fg = c.yellow }, -- (preferred) int, long, char, etc.
     Underlined                  = { underline = true }, -- (preferred) text that stands out, HTML links
     debugBreakpoint             = { bg = Util.blend_bg(c.info, 0.1), fg = c.info }, -- used for breakpoint colors in terminal-debug
     debugPC                     = { bg = c.bg_sidebar }, -- used for highlighting the current line in terminal-debug
