@@ -36,7 +36,7 @@ function M.get(c, opts)
     ["@keyword"]                    = { fg = c.fg, style = opts.styles.keywords }, -- For keywords that don't fall in previous categories.
     ["@keyword.conditional"]        = "Conditional",
     ["@keyword.coroutine"]          = "@keyword",
-    ["@keyword.debug"]              = "Debug",
+    ["@keyword.debug"]              = "@keyword",
     ["@keyword.directive"]          = "PreProc",
     ["@keyword.directive.define"]   = "Define",
     ["@keyword.exception"]          = "Exception",
@@ -44,8 +44,8 @@ function M.get(c, opts)
     ["@keyword.import"]             = { fg = c.fg },
     ["@keyword.operator"]           = "@operator",
     ["@keyword.repeat"]             = "Repeat",
-    ["@keyword.return"]             = "@keyword",
-    ["@keyword.storage"]            = "StorageClass",
+    ["@keyword.return"]             = "@keyword.repeat",
+    ["@keyword.storage"]            = "@keyword",
     ["@label"]                      = { fg = c.blue }, -- For labels: `label:` in C and `:label:` in Lua.
     ["@markup"]                     = "@none",
     ["@markup.emphasis"]            = { italic = true },
@@ -92,7 +92,7 @@ function M.get(c, opts)
     ["@type"]                       = "Type",
     ["@type.builtin"]               = "Type",
     ["@type.definition"]            = "Type",
-    ["@type.qualifier"]             = "Type",
+    ["@type.qualifier"]             = "@keyword",
     ["@variable"]                   = { fg = c.fg, style = opts.styles.variables }, -- Any variable name that does not have another highlight.
     ["@variable.builtin"]           = { fg = c.fg }, -- Variable names that are defined by the languages, like `this` or `self`.
     ["@variable.member"]            = { fg = c.fg }, -- For fields.
