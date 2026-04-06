@@ -12,7 +12,7 @@ function M.get(c, opts)
     ["@character"]                  = "Character",
     ["@character.printf"]           = "SpecialChar",
     ["@character.special"]          = "String",
-    ["@comment"]                    = "Comment",
+    ["@comment"]                    = { fg = c.green },
     ["@comment.error"]              = { fg = c.error },
     ["@comment.hint"]               = { fg = c.hint },
     ["@comment.info"]               = { fg = c.info },
@@ -33,7 +33,7 @@ function M.get(c, opts)
     ["@function.macro"]             = "Macro",
     ["@function.method"]            = "Function",
     ["@function.method.call"]       = "@function.method",
-    ["@keyword"]                    = { fg = c.purple, style = opts.styles.keywords }, -- For keywords that don't fall in previous categories.
+    ["@keyword"]                    = { fg = c.fg, style = opts.styles.keywords }, -- For keywords that don't fall in previous categories.
     ["@keyword.conditional"]        = "Conditional",
     ["@keyword.coroutine"]          = "@keyword",
     ["@keyword.debug"]              = "Debug",
@@ -68,11 +68,11 @@ function M.get(c, opts)
     ["@markup.strong"]              = { bold = true },
     ["@markup.underline"]           = { underline = true },
     ["@module"]                     = "Include",
-    ["@module.builtin"]             = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
-    ["@namespace.builtin"]          = "@variable.builtin",
+    ["@module.builtin"]             = { fg = c.fg }, -- Variable names that are defined by the languages, like `this` or `self`.
+    ["@namespace.builtin"]          = "Type",
     ["@none"]                       = {},
     ["@number"]                     = "Number",
-    ["@number.float"]               = "Float",
+    ["@number.float"]               = "Number",
     ["@operator"]                   = { fg = c.magenta }, -- For any operator: `+`, but also `->` and `*` in C.
     ["@property"]                   = { fg = c.green1 },
     ["@punctuation.bracket"]        = { fg = c.fg }, -- For brackets and parens.
@@ -90,7 +90,7 @@ function M.get(c, opts)
     ["@tag.tsx"]                    = { fg = c.red },
     ["@tag.javascript"]             = { fg = c.red },
     ["@type"]                       = "Type",
-    ["@type.builtin"]               = { fg = Util.blend_bg(c.blue1, 0.8) },
+    ["@type.builtin"]               = "Type",
     ["@type.definition"]            = "Type",
     ["@type.qualifier"]             = "Type",
     ["@variable"]                   = { fg = c.fg, style = opts.styles.variables }, -- Any variable name that does not have another highlight.

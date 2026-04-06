@@ -92,6 +92,7 @@ function M.get(c, opts)
     Special                     = { fg = c.blue1 }, -- (preferred) any special symbol
     Statement                   = { fg = c.fg }, -- (preferred) any statement
     String                      = { fg = c.orange }, --   a string constant: "this is a string"
+    Numer                       = { fg = c.orange }, --   a string constant: "this is a string"
     Todo                        = { bg = c.yellow, fg = c.bg }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     Type                        = { fg = c.yellow }, -- (preferred) int, long, char, etc.
     Underlined                  = { underline = true }, -- (preferred) text that stands out, HTML links
