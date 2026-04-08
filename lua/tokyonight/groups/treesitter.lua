@@ -6,13 +6,13 @@ local M = {}
 function M.get(c, opts)
   -- stylua: ignore
   local ret = {
-    ["@annotation"]                 = "PreProc",
-    ["@attribute"]                  = "PreProc",
+    ["@annotation"]                 = { fg = c.fg },
+    ["@attribute"]                  = { fg = c.fg },
     ["@boolean"]                    = "Boolean",
     ["@character"]                  = "Character",
     ["@character.printf"]           = "SpecialChar",
-    ["@character.special"]          = "String",
-    ["@comment"]                    = { fg = c.green },
+    ["@character.special"]          = "SpecialChar",
+    ["@comment"]                    = "Comment",
     ["@comment.error"]              = { fg = c.error },
     ["@comment.hint"]               = { fg = c.hint },
     ["@comment.info"]               = { fg = c.info },
@@ -22,30 +22,30 @@ function M.get(c, opts)
     ["@constant"]                   = "Constant",
     ["@constant.builtin"]           = "Constant",
     ["@constant.macro"]             = "Define",
-    ["@constructor"]                = { fg = c.magenta }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
+    ["@constructor"]                = { fg = c.teal }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
     ["@constructor.tsx"]            = { fg = c.blue1 },
     ["@diff.delta"]                 = "DiffChange",
     ["@diff.minus"]                 = "DiffDelete",
     ["@diff.plus"]                  = "DiffAdd",
-    ["@function"]                   = "Function",
-    ["@function.builtin"]           = "Function",
+    ["@function"]                   = { fg = c.teal },
+    ["@function.builtin"]           = { fg = c.teal },
     ["@function.call"]              = "@function",
     ["@function.macro"]             = "Macro",
-    ["@function.method"]            = "Function",
-    ["@function.method.call"]       = "@function.method",
+    ["@function.method"]            = { fg = c.teal },
+    ["@function.method.call"]       = { fg = c.teal },
     ["@keyword"]                    = { fg = c.fg, style = opts.styles.keywords }, -- For keywords that don't fall in previous categories.
-    ["@keyword.conditional"]        = "Conditional",
+    ["@keyword.conditional"]        = { fg = c.teal },
     ["@keyword.coroutine"]          = "@keyword",
-    ["@keyword.debug"]              = "@keyword",
+    ["@keyword.debug"]              = { fg = c.fg },
     ["@keyword.directive"]          = "PreProc",
     ["@keyword.directive.define"]   = "Define",
     ["@keyword.exception"]          = "Exception",
-    ["@keyword.function"]           = { fg = c.fg, style = opts.styles.functions }, -- For keywords used to define a function.
+    ["@keyword.function"]           = { fg = c.teal, style = opts.styles.functions }, -- For keywords used to define a function.
     ["@keyword.import"]             = { fg = c.fg },
-    ["@keyword.operator"]           = "@operator",
-    ["@keyword.repeat"]             = "Repeat",
-    ["@keyword.return"]             = "@keyword.repeat",
-    ["@keyword.storage"]            = "@keyword",
+    ["@keyword.operator"]           = "@keyword",
+    ["@keyword.repeat"]             = { fg = c.teal },
+    ["@keyword.return"]             = { fg = c.teal },
+    ["@keyword.storage"]            = { fg = c.fg },
     ["@label"]                      = { fg = c.blue }, -- For labels: `label:` in C and `:label:` in Lua.
     ["@markup"]                     = "@none",
     ["@markup.emphasis"]            = { italic = true },
@@ -68,20 +68,20 @@ function M.get(c, opts)
     ["@markup.strong"]              = { bold = true },
     ["@markup.underline"]           = { underline = true },
     ["@module"]                     = "Include",
-    ["@module.builtin"]             = { fg = c.fg }, -- Variable names that are defined by the languages, like `this` or `self`.
-    ["@namespace.builtin"]          = "Type",
+    ["@module.builtin"]             = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
+    ["@namespace.builtin"]          = "@variable.builtin",
     ["@none"]                       = {},
     ["@number"]                     = "Number",
-    ["@number.float"]               = "Number",
-    ["@operator"]                   = { fg = c.fg }, -- For any operator: `+`, but also `->` and `*` in C.
-    ["@property"]                   = { fg = c.green1 },
-    ["@punctuation.bracket"]        = { fg = c.fg }, -- For brackets and parens.
-    ["@punctuation.delimiter"]      = { fg = c.fg }, -- For delimiters ie: `.`
-    ["@punctuation.special"]        = { fg = c.fg }, -- For special symbols (e.g. `{}` in string interpolation)
-    ["@punctuation.special.markdown"] = { fg = c.fg }, -- For special symbols (e.g. `{}` in string interpolation)
+    ["@number.float"]               = "Float",
+    ["@operator"]                   = { fg = c.teal }, -- For any operator: `+`, but also `->` and `*` in C.
+    ["@property"]                   = { fg = c.fg },
+    ["@punctuation.bracket"]        = { fg = c.fg_dark }, -- For brackets and parens.
+    ["@punctuation.delimiter"]      = { fg = c.blue5 }, -- For delimiters ie: `.`
+    ["@punctuation.special"]        = { fg = c.blue5 }, -- For special symbols (e.g. `{}` in string interpolation)
+    ["@punctuation.special.markdown"] = { fg = c.orange }, -- For special symbols (e.g. `{}` in string interpolation)
     ["@string"]                     = "String",
-    ["@string.documentation"]       = { fg = c.orange },
-    ["@string.escape"]              = { fg = c.orange }, -- For escape characters within a string.
+    ["@string.documentation"]       = { fg = c.yellow },
+    ["@string.escape"]              = { fg = c.teal }, -- For escape characters within a string.
     ["@string.regexp"]              = { fg = c.blue6 }, -- For regexes.
     ["@tag"]                        = "Label",
     ["@tag.attribute"]              = "@property",
@@ -89,15 +89,19 @@ function M.get(c, opts)
     ["@tag.delimiter.tsx"]          = { fg = Util.blend_bg(c.blue, 0.7) },
     ["@tag.tsx"]                    = { fg = c.red },
     ["@tag.javascript"]             = { fg = c.red },
-    ["@type"]                       = "Type",
-    ["@type.builtin"]               = "Type",
-    ["@type.definition"]            = "Type",
-    ["@type.qualifier"]             = "@keyword",
+    ["@type"]                       = { fg = c.fg},
+    ["@type.builtin"]               = { fg = c.fg },
+    ["@type.definition"]            = { fg = c.fg},
+    ["@type.qualifier"]             = { fg = c.fg },
     ["@variable"]                   = { fg = c.fg, style = opts.styles.variables }, -- Any variable name that does not have another highlight.
     ["@variable.builtin"]           = { fg = c.fg }, -- Variable names that are defined by the languages, like `this` or `self`.
     ["@variable.member"]            = { fg = c.fg }, -- For fields.
     ["@variable.parameter"]         = { fg = c.fg }, -- For parameters of a function.
     ["@variable.parameter.builtin"] = { fg = c.fg }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
+
+    ["@lsp.typemod.class.declaration"] = { fg = c.yellow },
+    ["@lsp.typemod.function.declaration"] = { fg = c.yellow },
+    ["@lsp.typemod.type.defaultLibrary.cpp"] = { fg = c.fg },
   }
 
   for i, color in ipairs(c.rainbow) do

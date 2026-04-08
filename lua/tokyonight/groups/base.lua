@@ -6,12 +6,11 @@ local M = {}
 function M.get(c, opts)
   -- stylua: ignore
   return {
-    Foo                         = { bg = c.magenta2, fg = c.fg },
+    Foo                         = { bg = c.teal, fg = c.fg },
 
-    Comment                     = { fg = c.green, style = opts.styles.comments }, -- any comment
+    Comment                     = { fg = c.red, style = opts.styles.comments }, -- any comment
     ColorColumn                 = { bg = c.black }, -- used for the columns set with 'colorcolumn'
     Conceal                     = { fg = c.dark5 }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-    Conditional                 = { fg = c.magenta }, -- conditional expressions keywords
     Cursor                      = { fg = c.bg, bg = c.fg }, -- character under the cursor
     lCursor                     = { fg = c.bg, bg = c.fg }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM                    = { fg = c.bg, bg = c.fg }, -- like Cursor, but used when in IME mode |CursorIM|
@@ -23,7 +22,6 @@ function M.get(c, opts)
     DiffDelete                  = { bg = c.diff.delete }, -- diff mode: Deleted line |diff.txt|
     DiffText                    = { bg = c.diff.text }, -- diff mode: Changed text within a changed line |diff.txt|
     EndOfBuffer                 = { fg = c.bg }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
-    Function                    = { fg = c.magenta }, -- error messages on the command line
     ErrorMsg                    = { fg = c.error }, -- error messages on the command line
     VertSplit                   = { fg = c.border }, -- the column separating vertically split windows
     WinSeparator                = { fg = c.border, bold = true }, -- the column separating vertically split windows
@@ -83,29 +81,30 @@ function M.get(c, opts)
     Debug                       = { fg = c.orange }, --    debugging statements
     Delimiter                   =  "Special", --  character that needs attention
     Error                       = { fg = c.error }, -- (preferred) any erroneous construct
-    Function                    = { fg = c.magenta, style = opts.styles.functions }, -- function name (also: methods for classes)
+    Function                    = { fg = c.teal, style = opts.styles.functions }, -- function name (also: methods for classes)
     Identifier                  = { fg = c.fg, style = opts.styles.variables }, -- (preferred) any variable name
     Italic                      = { italic = true, fg = c.fg }, -- (preferred) any italic text
-    Keyword                     = { fg = c.fg, style = opts.styles.keywords }, --  any other keyword
-    Operator                    = { fg = c.magenta }, -- "sizeof", "+", "*", etc.
+    Keyword                     = { fg = c.fg }, --  any other keyword
+    Operator                    = { fg = c.yellow }, -- "sizeof", "+", "*", etc.
     PreProc                     = { fg = c.cyan }, -- (preferred) generic Preprocessor
-    Repeat                      = { fg = c.magenta }, -- (preferred) repeat keywords: for, etc
-    Special                     = { fg = c.blue1 }, -- (preferred) any special symbol
+    Special                     = { fg = c.fg }, -- (preferred) any special symbol
     Statement                   = { fg = c.fg }, -- (preferred) any statement
     String                      = { fg = c.orange }, --   a string constant: "this is a string"
-    Numer                       = { fg = c.orange }, --   a string constant: "this is a string"
     Todo                        = { bg = c.yellow, fg = c.bg }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-    Type                        = { fg = c.yellow }, -- (preferred) int, long, char, etc.
-    -- Structure                   = { fg = c.yellow }, -- (preferred) int, long, char, etc.
+    Type                        = { fg = c.fg }, -- (preferred) int, long, char, etc.
+    Structure                   = { fg = c.fg }, -- (preferred) int, long, char, etc.
     Underlined                  = { underline = true }, -- (preferred) text that stands out, HTML links
     debugBreakpoint             = { bg = Util.blend_bg(c.info, 0.1), fg = c.info }, -- used for breakpoint colors in terminal-debug
     debugPC                     = { bg = c.bg_sidebar }, -- used for highlighting the current line in terminal-debug
     dosIniLabel                 = "@property",
     helpCommand                 = { bg = c.terminal_black, fg = c.blue },
-    htmlH1                      = { fg = c.magenta, bold = true },
+    htmlH1                      = { fg = c.teal, bold = true },
     htmlH2                      = { fg = c.blue, bold = true },
     qfFileName                  = { fg = c.blue },
     qfLineNr                    = { fg = c.dark5 },
+    cStorageClass               = { fg  = c.fg }, 
+    Repeat                      = { fg = c.teal },
+    Conditional                 = { fg = c.teal },
 
     -- These groups are for the native LSP client. Some other LSP clients may
     -- use these groups, or use their own.
