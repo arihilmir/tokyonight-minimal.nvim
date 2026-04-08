@@ -68,7 +68,7 @@ function M.get(c, opts)
     ["@markup.strong"]              = { bold = true },
     ["@markup.underline"]           = { underline = true },
     ["@module"]                     = "Include",
-    ["@module.builtin"]             = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
+    ["@module.builtin"]             = "Include", -- Variable names that are defined by the languages, like `this` or `self`.
     ["@namespace.builtin"]          = "@variable.builtin",
     ["@none"]                       = {},
     ["@number"]                     = "Number",
@@ -94,7 +94,7 @@ function M.get(c, opts)
     ["@type.definition"]            = { fg = c.fg},
     ["@type.qualifier"]             = { fg = c.fg },
     ["@variable"]                   = { fg = c.fg, style = opts.styles.variables }, -- Any variable name that does not have another highlight.
-    ["@variable.builtin"]           = { fg = c.fg }, -- Variable names that are defined by the languages, like `this` or `self`.
+    ["@variable.builtin"]           = { fg = c.fg }, -- Variable names that are defined by the languages, like `this` or `self` or `cout`?.
     ["@variable.member"]            = { fg = c.fg }, -- For fields.
     ["@variable.parameter"]         = { fg = c.fg }, -- For parameters of a function.
     ["@variable.parameter.builtin"] = { fg = c.fg }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
